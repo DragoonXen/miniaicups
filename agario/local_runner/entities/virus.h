@@ -40,7 +40,7 @@ public:
             return INFINITY;
         }
         double qdist = circle->calc_qdist(x, y);
-        double tR = radius * RAD_HURT_FACTOR + circle->getR();
+        double tR = radius * (1. - RAD_HURT_FACTOR) + circle->getR(); // 1/3 radius distance needed, if we wanna cover 2/3 of radius.
         if (qdist < tR * tR) {
             return qdist;
         }
